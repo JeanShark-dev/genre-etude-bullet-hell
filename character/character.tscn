@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c15qtmejnl5n6"]
+[gd_scene load_steps=4 format=3 uid="uid://c15qtmejnl5n6"]
 
 [ext_resource type="Script" path="res://character/movement.gd" id="1_pe81k"]
+[ext_resource type="Texture2D" uid="uid://0wd53ty4syrk" path="res://character/hitbox.png" id="2_ytykf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_do7kj"]
 radius = 5.0
@@ -15,5 +16,5 @@ polygon = PackedVector2Array(-12, -16, -35, 1, -12, -6, -19, 31, 22, 29, 10, -6,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_do7kj")
 
-[node name="Polygon2D" type="Polygon2D" parent="CollisionShape2D"]
-polygon = PackedVector2Array(0, 5, 4, 3, 5, 0, 3, -4, 0, -5, -4, -3, -5, 0, -3, 4, -1, 5)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ytykf")
