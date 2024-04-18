@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dv075ovaks8i4"]
+[gd_scene load_steps=2 format=3 uid="uid://dv075ovaks8i4"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_52xjy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_52xjy")
 
 [node name="TempBG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -61,35 +64,35 @@ color = Color(1, 1, 1, 0)
 layout_mode = 2
 alignment = 2
 
-[node name="MenuOption" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
+[node name="StartOption" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 32
+focus_neighbor_top = NodePath("../QuitOption")
+focus_neighbor_bottom = NodePath("../ExtraOption")
 text = "MAINMENUSTART"
-fit_content = true
 
-[node name="MenuOption2" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
+[node name="ExtraOption" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 32
+focus_neighbor_top = NodePath("../StartOption")
+focus_neighbor_bottom = NodePath("../RecordsOption")
 text = "MAINMENUEXTRA"
-fit_content = true
 
-[node name="MenuOption3" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
+[node name="RecordsOption" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 32
+focus_neighbor_top = NodePath("../ExtraOption")
+focus_neighbor_bottom = NodePath("../MusicOption")
 text = "MAINMENURECORDS"
-fit_content = true
 
-[node name="MenuOption4" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
+[node name="MusicOption" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 32
+focus_neighbor_top = NodePath("../RecordsOption")
+focus_neighbor_bottom = NodePath("../QuitOption")
 text = "MAINMENUMUSIC"
-fit_content = true
 
-[node name="MenuOption5" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
+[node name="QuitOption" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 32
+focus_neighbor_top = NodePath("../MusicOption")
+focus_neighbor_bottom = NodePath("../StartOption")
 text = "MAINMENUQUIT"
-fit_content = true
 
 [node name="FormatBuffer3" type="ColorRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
