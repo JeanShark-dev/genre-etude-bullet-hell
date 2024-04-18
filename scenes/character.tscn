@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://c15qtmejnl5n6"]
 
-[ext_resource type="Script" path="res://character/movement.gd" id="1_pe81k"]
-[ext_resource type="Texture2D" uid="uid://0wd53ty4syrk" path="res://character/hitbox.png" id="2_ytykf"]
+[ext_resource type="Script" path="res://scripts/player_movement.gd" id="1_eolnw"]
+[ext_resource type="Texture2D" uid="uid://0wd53ty4syrk" path="res://graphics/player/hitbox.png" id="2_15w2i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_do7kj"]
 radius = 5.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_pe81k")
+script = ExtResource("1_eolnw")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.835294, 0.505882, 0.545098, 1)
@@ -17,4 +17,4 @@ polygon = PackedVector2Array(-12, -16, -35, 1, -12, -6, -19, 31, 22, 29, 10, -6,
 shape = SubResource("CircleShape2D_do7kj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ytykf")
+texture = ExtResource("2_15w2i")
