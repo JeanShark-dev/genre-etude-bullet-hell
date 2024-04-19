@@ -1,6 +1,15 @@
-keys,en,fi
-MAINMENUSTART,Start game,Aloita peli
-MAINMENUEXTRA,,
-MAINMENURECORDS,Player data,Pelaajan tiedot
-MAINMENUMUSIC,Music,Musiikki
-MAINMENUQUIT,Quit,Sulje peli
+keys,en,fi,pr
+MAINMENUSTART,Start game,Aloita peli,
+MAINMENUEXTRA,Start extra,,
+MAINMENURECORDS,Player data,Pelaajan tiedot,
+MAINMENUMUSIC,Music,Musiikki,
+MAINMENUQUIT,Quit,Sulje peli,
+LEVEL1LABEL,Stage 1,Taso 1,
+LEVEL2LABEL,Stage 2,Taso 2,
+LEVEL3LABEL,Stage 3,Taso 3,
+LEVEL4LABEL,Stage 4,Taso 4,
+LEVEL5LABEL,Stage 5,Taso 5,
+LEVEL6LABEL,Stage 6,Taso 6,
+LEVELEXLABEL,Extra,Ekstra,
+HIGHSCORELABEL,High Score,Piste-ennätys,
+CURRENTSCORELABEL,Score,Pisteet,

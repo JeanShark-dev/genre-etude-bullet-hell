@@ -7,7 +7,7 @@ offset_right = 1280.0
 offset_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
-color = Color(0.870588, 0.870588, 0.870588, 1)
+color = Color(0.427451, 0.270588, 0.290196, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 offset_top = 928.0
@@ -15,14 +15,14 @@ offset_right = 1280.0
 offset_bottom = 960.0
 size_flags_horizontal = 2
 size_flags_vertical = 10
-color = Color(0.870588, 0.870588, 0.870588, 1)
+color = Color(0.427451, 0.270588, 0.290196, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="."]
 offset_left = 800.0
 offset_right = 1280.0
 offset_bottom = 960.0
 size_flags_horizontal = 8
-color = Color(0.870588, 0.870588, 0.870588, 1)
+color = Color(0.427451, 0.270588, 0.290196, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect4"]
 layout_mode = 1
@@ -39,15 +39,44 @@ theme_override_constants/margin_bottom = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect4/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="Label" parent="ColorRect4/MarginContainer/VBoxContainer"]
+[node name="LevelLabel" type="Label" parent="ColorRect4/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "TEST"
+theme_override_font_sizes/font_size = 32
+text = "LEVEL1LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HighScoreContainer" type="HSplitContainer" parent="ColorRect4/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect4/MarginContainer/VBoxContainer/HighScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "HIGHSCORELABEL"
+
+[node name="Number" type="Label" parent="ColorRect4/MarginContainer/VBoxContainer/HighScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
+
+[node name="ScoreContainer" type="HSplitContainer" parent="ColorRect4/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect4/MarginContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "CURRENTSCORELABEL"
+
+[node name="Number" type="Label" parent="ColorRect4/MarginContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_right = 64.0
 offset_bottom = 960.0
 size_flags_horizontal = 2
 size_flags_vertical = 3
-color = Color(0.870588, 0.870588, 0.870588, 1)
+color = Color(0.427451, 0.270588, 0.290196, 1)
