@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://c22vps6ocnok7"]
+[gd_scene load_steps=2 format=3 uid="uid://c22vps6ocnok7"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_aksw5"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_aksw5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1280.0
@@ -80,3 +83,5 @@ offset_bottom = 960.0
 size_flags_horizontal = 2
 size_flags_vertical = 3
 color = Color(0.427451, 0.270588, 0.290196, 1)
+
+[node name="World" type="Node2D" parent="."]
