@@ -16,6 +16,6 @@ polygon = PackedVector2Array(-12, -16, -35, 1, -12, -6, -19, 31, 22, 29, 10, -6,
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_do7kj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Hitbox" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
 texture = ExtResource("2_15w2i")

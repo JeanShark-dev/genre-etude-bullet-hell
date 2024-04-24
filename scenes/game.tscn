@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_aksw5"]
 
 [node name="Game" type="Node2D"]
+z_index = 10
 script = ExtResource("1_aksw5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -85,3 +86,4 @@ size_flags_vertical = 3
 color = Color(0.427451, 0.270588, 0.290196, 1)
 
 [node name="World" type="Node2D" parent="."]
+z_as_relative = false
