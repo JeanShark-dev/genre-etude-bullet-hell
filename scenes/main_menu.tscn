@@ -98,3 +98,9 @@ text = "MAINMENUQUIT"
 layout_mode = 2
 size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer/StartOption" to="." method="_on_start_option_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer/ExtraOption" to="." method="_on_extra_option_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer/RecordsOption" to="." method="_on_records_option_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer/MusicOption" to="." method="_on_music_option_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer/QuitOption" to="." method="_on_quit_option_pressed"]
