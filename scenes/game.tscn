@@ -87,3 +87,73 @@ color = Color(0.427451, 0.270588, 0.290196, 1)
 
 [node name="World" type="Node2D" parent="."]
 z_as_relative = false
+
+[node name="PauseMenu" type="Node2D" parent="World"]
+process_mode = 3
+visible = false
+z_index = 1
+
+[node name="PauseBG" type="ColorRect" parent="World/PauseMenu"]
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 800.0
+offset_bottom = 928.0
+color = Color(0.121569, 0.121569, 0.121569, 0.121569)
+
+[node name="PauseMenuContainer" type="HBoxContainer" parent="World/PauseMenu/PauseBG"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 298.0
+offset_right = 704.0
+offset_bottom = 399.0
+
+[node name="PauseMenuOptions" type="VBoxContainer" parent="World/PauseMenu/PauseBG/PauseMenuContainer"]
+layout_mode = 2
+
+[node name="PauseMenuOption" type="Button" parent="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUCONTINUE"
+
+[node name="PauseMenuOption2" type="Button" parent="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENURESTART"
+
+[node name="PauseMenuOption3" type="Button" parent="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUQUIT"
+
+[node name="PauseMenuFlavor" type="VBoxContainer" parent="World/PauseMenu/PauseBG/PauseMenuContainer"]
+layout_mode = 2
+
+[node name="PauseMenuFlavor" type="Label" parent="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuFlavor"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUCONTINUE_FLAVOURTEXT"
+vertical_alignment = 1
+
+[node name="PauseMenuFlavor2" type="Label" parent="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuFlavor"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENURESTART_FLAVOURTEXT"
+vertical_alignment = 1
+
+[node name="PauseMenuFlavor3" type="Label" parent="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuFlavor"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUQUIT_FLAVOURTEXT"
+vertical_alignment = 1
+
+[node name="PauseMenuLabel" type="Label" parent="World/PauseMenu/PauseBG"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 227.0
+offset_right = 350.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 32
+text = "PAUSEDLABEL"
