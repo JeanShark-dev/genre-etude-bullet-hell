@@ -1,19 +1,25 @@
 extends Control
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+var gameMenu = load("res://scenes/game.tscn")
+var playerCharacter = load("res://scenes/character.tscn")
+
+
+func _ready(): # make sure ye can use arrow keys for navigation by focusing first button
 	$MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer/StartOption.grab_focus()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func start_game(player, mode): #
+	var newGame = gameMenu.instantiate()
+	newGame.playerType = player
+	newGame.startingStage = mode
+	get_parent().add_child(newGame)
+	queue_free()
 
 
 func _on_start_option_pressed():
 	print("Starting game, please wait warmly...")
-
+	start_game("default", "default")
 
 func _on_extra_option_pressed():
 	print("Starting extra, please wait coolly...")
