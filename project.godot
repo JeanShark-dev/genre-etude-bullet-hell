@@ -68,6 +68,7 @@ gp_spell={
 
 locale/translations=PackedStringArray("res://localisation/translate.csv", "res://localisation/translate.en.translation", "res://localisation/translate.fi.translation")
 locale/fallback="fi"
+locale/locale_filter_mode=0
 
 [physics]
 
