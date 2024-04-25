@@ -168,7 +168,7 @@ theme_override_font_sizes/font_size = 32
 text = "PAUSEDLABEL"
 
 [node name="Spinner" parent="World" instance=ExtResource("2_42xim")]
-position = Vector2(317, 296)
+position = Vector2(325, 597)
 
 [node name="Spinner2" parent="World" instance=ExtResource("2_42xim")]
 position = Vector2(612, 288)

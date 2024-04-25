@@ -35,7 +35,7 @@ func pause():
 func spawn_player():
 	var newPlayer = playerChar.instantiate()
 	newPlayer.position = playerSpawnTarget
-	$World.add_child(newPlayer)
+	$World.call_deferred("add_child", newPlayer)
 
 
 func _on_pause_menu_option_pressed():

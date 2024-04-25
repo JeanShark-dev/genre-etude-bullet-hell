@@ -21,3 +21,10 @@ shape = SubResource("CircleShape2D_do7kj")
 visible = false
 scale = Vector2(3, 3)
 texture = ExtResource("2_15w2i")
+
+[node name="IFrameTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="IFrameTimer" to="." method="_on_i_frame_timer_timeout"]
