@@ -21,10 +21,12 @@ func _process(_delta):
 
 func pause():
 	if isPaused:
+		print("Taking a break?")
 		get_tree().paused = true
 		$World/PauseMenu.show()
 		$World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption.grab_focus()
 	if !isPaused:
+		print("Let þ game continue!")
 		get_tree().paused = false
 		$World/PauseMenu.hide()
 
@@ -45,5 +47,6 @@ func _on_pause_menu_option_2_pressed():
 
 
 func _on_pause_menu_option_3_pressed():
+	print("'til next time!")
 	get_parent().load_main_menu()
 	queue_free()
