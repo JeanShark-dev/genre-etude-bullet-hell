@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c22vps6ocnok7"]
+[gd_scene load_steps=3 format=3 uid="uid://c22vps6ocnok7"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_aksw5"]
+[ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/spinner.tscn" id="2_42xim"]
 
 [node name="Game" type="Node2D"]
 process_mode = 3
@@ -165,6 +166,12 @@ offset_right = 350.0
 offset_bottom = 272.0
 theme_override_font_sizes/font_size = 32
 text = "PAUSEDLABEL"
+
+[node name="Spinner" parent="World" instance=ExtResource("2_42xim")]
+position = Vector2(317, 296)
+
+[node name="Spinner2" parent="World" instance=ExtResource("2_42xim")]
+position = Vector2(612, 288)
 
 [connection signal="pressed" from="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption" to="." method="_on_pause_menu_option_pressed"]
 [connection signal="pressed" from="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption2" to="." method="_on_pause_menu_option_2_pressed"]

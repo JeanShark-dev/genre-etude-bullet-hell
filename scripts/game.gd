@@ -10,6 +10,7 @@ var isPaused = false
 
 func _ready():
 	spawn_player()
+	print(get_groups())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
