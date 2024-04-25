@@ -48,5 +48,6 @@ func _on_pause_menu_option_2_pressed():
 
 func _on_pause_menu_option_3_pressed():
 	print("'til next time!")
+	get_tree().paused = false
 	get_parent().load_main_menu()
 	queue_free()
