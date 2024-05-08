@@ -21,6 +21,7 @@ func _on_start_option_pressed():
 	print("Starting game, please wait warmly...")
 	start_game("default", "default")
 
+
 func _on_extra_option_pressed():
 	print("Starting extra, please wait coolly...")
 

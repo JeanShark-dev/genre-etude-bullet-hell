@@ -38,6 +38,10 @@ func spawn_player():
 	$World.call_deferred("add_child", newPlayer)
 
 
+func check_bullet_collision(): # for each bullet, check its hitradius for player hitradius
+	pass
+
+
 func _on_pause_menu_option_pressed():
 	isPaused = !isPaused
 	pause()

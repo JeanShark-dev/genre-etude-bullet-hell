@@ -173,6 +173,10 @@ position = Vector2(325, 597)
 [node name="Spinner2" parent="World" instance=ExtResource("2_42xim")]
 position = Vector2(612, 288)
 
+[node name="BulletContainer" type="Node2D" parent="World"]
+
+[node name="EnemyContainer" type="Node2D" parent="World"]
+
 [connection signal="pressed" from="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption" to="." method="_on_pause_menu_option_pressed"]
 [connection signal="pressed" from="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption2" to="." method="_on_pause_menu_option_2_pressed"]
 [connection signal="pressed" from="World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption3" to="." method="_on_pause_menu_option_3_pressed"]
