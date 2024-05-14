@@ -6,11 +6,16 @@ var type = "default"
 var moveSpeed
 var isAlive = true # use as a respawn timer later
 var isVincible = false # for i-frames
+var isShooting = false
+var shotCooldownMain = 0
+var shotCooldownOption = 0
+
+var shot = preload("res://scenes/player_bullet.tscn")
 
 
 func _ready():
 	if type == "default":
-		speed = 200
+		speed = 250
 	
 	moveSpeed = speed
 
@@ -30,9 +35,15 @@ func player_input():
 	if Input.is_action_just_released("gp_focus"):
 		moveSpeed = speed
 		$Hitbox.hide()
-	
+	if Input.is_action_pressed("gp_fire"):
+		isShooting = true
 	var direction = Vector2(Input.get_axis("gp_left", "gp_right"), Input.get_axis("gp_up", "gp_down"))
 	return direction
+
+
+func shoot():
+	if shotCooldownMain = 0:
+		pass # replace with shooting bullet 
 
 
 func die(): # add effects, deaþbombing, resource loss here later

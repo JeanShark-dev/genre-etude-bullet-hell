@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://u6gk4jswgg2p"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_pbflc"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_04051"]
+b = Vector2(0, 21)
+
+[node name="PlayerBullet" type="Area2D"]
+script = ExtResource("1_pbflc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_04051")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-2, 19, 2, 19, 2, 4, -2, 4)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
