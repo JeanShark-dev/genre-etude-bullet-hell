@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dsgi3c3qhkue2"]
 
-[ext_resource type="Script" path="res://scripts/stage.gd" id="1_2qjie"]
+[ext_resource type="Script" path="res://scripts/stages/debugStage.gd" id="1_2qjie"]
 [ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="1_7ibcp"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHBulletProperties.gd" id="2_cglef"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BulletProps.gd" id="3_2w30i"]
@@ -155,7 +155,6 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 process_mode = 1
 z_as_relative = false
 script = ExtResource("1_2qjie")
-stage = "debug"
 
 [node name="Spinner" parent="." instance=ExtResource("1_7ibcp")]
 position = Vector2(325, 597)
@@ -177,3 +176,15 @@ props = SubResource("PackedDataContainer_kvdre")
 curve = SubResource("Curve2D_r1x0k")
 script = ExtResource("4_req4y")
 pattern = SubResource("NavigationPolygon_gwlqw")
+
+[node name="TimerContainer" type="Node2D" parent="."]
+
+[node name="StartTimer" type="Timer" parent="TimerContainer"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="SpawnTimer1" type="Timer" parent="TimerContainer"]
+
+[connection signal="timeout" from="TimerContainer/StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="TimerContainer/SpawnTimer1" to="." method="_on_spawn_timer_1_timeout"]
