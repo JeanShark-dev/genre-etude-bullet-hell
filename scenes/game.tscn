@@ -9,6 +9,7 @@ z_index = 10
 script = ExtResource("1_aksw5")
 
 [node name="GameUI" parent="." instance=ExtResource("2_rqj5h")]
+process_mode = 1
 
 [node name="PauseMenu" type="Node2D" parent="."]
 process_mode = 3
