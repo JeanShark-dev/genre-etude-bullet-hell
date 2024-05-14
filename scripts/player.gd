@@ -9,16 +9,22 @@ var isVincible = false # for i-frames
 var isShooting = false
 var shotCooldownMain = 0
 var shotCooldownOption = 0
-
+var mainGun = [Vector2(7,0), Vector2(-7,0)]
 var shot = preload("res://scenes/player_bullet.tscn")
 
 
 func _ready():
 	if type == "default":
-		speed = 250
+		speed = 500
 	
 	moveSpeed = speed
 
+
+func _process(delta):
+	shotCooldownMain -= 1
+	shotCooldownMain = clamp(shotCooldownMain, 0, 1024)
+	shotCooldownOption -= 1
+	shotCooldownOption = clamp(shotCooldownOption, 0, 1024)
 
 func _physics_process(delta):
 	if isAlive:
@@ -26,11 +32,13 @@ func _physics_process(delta):
 		var velocity = direction * moveSpeed
 		position += velocity * delta
 		position = position.clamp(Vector2(64,32), Vector2(800, 928))
+		if isShooting:shoot()
 
 
 func player_input():
+	isShooting = false
 	if Input.is_action_just_pressed("gp_focus"):
-		moveSpeed = speed/2
+		moveSpeed = speed/3
 		$Hitbox.show()
 	if Input.is_action_just_released("gp_focus"):
 		moveSpeed = speed
@@ -42,8 +50,12 @@ func player_input():
 
 
 func shoot():
-	if shotCooldownMain = 0:
-		pass # replace with shooting bullet 
+	if shotCooldownMain == 0 && isShooting:
+		shotCooldownMain = 5
+		for i in 2:
+			var newBullet = shot.instantiate()
+			newBullet.position = mainGun[i] + position
+			get_parent().add_child(newBullet)
 
 
 func die(): # add effects, deaþbombing, resource loss here later

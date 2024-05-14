@@ -11,4 +11,4 @@ func _ready():
 func take_damage(damage):
 	healthPoints -= damage
 	if healthPoints <= 0:
-		print("dead. not big soup-rice")
+		queue_free()
