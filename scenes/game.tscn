@@ -1,99 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://c22vps6ocnok7"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_aksw5"]
-[ext_resource type="PackedScene" uid="uid://dsgi3c3qhkue2" path="res://scenes/stages/debug.tscn" id="2_y6h1m"]
+[ext_resource type="PackedScene" uid="uid://bujup1hq3yp8c" path="res://scenes/ui.tscn" id="2_rqj5h"]
 
 [node name="Game" type="Node2D"]
 process_mode = 3
 z_index = 10
 script = ExtResource("1_aksw5")
 
-[node name="GameUI" type="ColorRect" parent="."]
-offset_left = 800.0
-offset_right = 1280.0
-offset_bottom = 960.0
-size_flags_horizontal = 8
-color = Color(0.427451, 0.270588, 0.290196, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="GameUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 32
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/MarginContainer"]
-layout_mode = 2
-
-[node name="LevelLabel" type="Label" parent="GameUI/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "LEVEL1LABEL"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HighScoreContainer" type="HSplitContainer" parent="GameUI/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="GameUI/MarginContainer/VBoxContainer/HighScoreContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "HIGHSCORELABEL"
-
-[node name="Number" type="Label" parent="GameUI/MarginContainer/VBoxContainer/HighScoreContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "0"
-horizontal_alignment = 2
-
-[node name="ScoreContainer" type="HSplitContainer" parent="GameUI/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="GameUI/MarginContainer/VBoxContainer/ScoreContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "CURRENTSCORELABEL"
-
-[node name="Number" type="Label" parent="GameUI/MarginContainer/VBoxContainer/ScoreContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "0"
-horizontal_alignment = 2
-
-[node name="ColorRect3" type="ColorRect" parent="GameUI"]
-layout_mode = 0
-offset_left = -800.0
-offset_top = 928.0
-offset_right = 480.0
-offset_bottom = 960.0
-size_flags_horizontal = 2
-size_flags_vertical = 10
-color = Color(0.427451, 0.270588, 0.290196, 1)
-
-[node name="ColorRect" type="ColorRect" parent="GameUI"]
-layout_mode = 0
-offset_left = -800.0
-offset_right = 480.0
-offset_bottom = 32.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-color = Color(0.427451, 0.270588, 0.290196, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="GameUI"]
-layout_mode = 0
-offset_left = -800.0
-offset_right = -736.0
-offset_bottom = 960.0
-size_flags_horizontal = 2
-size_flags_vertical = 3
-color = Color(0.427451, 0.270588, 0.290196, 1)
-
-[node name="World" parent="." instance=ExtResource("2_y6h1m")]
+[node name="GameUI" parent="." instance=ExtResource("2_rqj5h")]
 
 [node name="PauseMenu" type="Node2D" parent="."]
 process_mode = 3
