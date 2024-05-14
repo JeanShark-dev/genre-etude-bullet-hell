@@ -12,7 +12,7 @@ func _ready(): # make sure ye can use arrow keys for navigation by focusing firs
 func start_game(player, mode): #
 	var newGame = gameMenu.instantiate()
 	newGame.playerType = player
-	newGame.startingStage = mode
+	newGame.gameMode = mode
 	get_parent().add_child(newGame)
 	queue_free()
 

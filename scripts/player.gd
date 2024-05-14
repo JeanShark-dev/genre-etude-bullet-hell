@@ -36,7 +36,7 @@ func player_input():
 
 
 func die(): # add effects, deaþbombing, resource loss here later
-	get_parent().get_parent().spawn_player()
+	get_parent().spawn_player()
 	queue_free()
 
 

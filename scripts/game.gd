@@ -4,42 +4,64 @@ extends Node2D
 var playerSpawnTarget = Vector2(420, 750)
 var playerChar = load("res://scenes/character.tscn")
 var playerType
-var startingStage
+var gameMode
 var isPaused = false
+
+var stageD = load("res://scenes/stages/debug.tscn") # i wonder if þr is any better way of loading 8 stages...
+var stage1
+var stage2
+var stage3
+var stage4
+var stage5
+var stage6
+var stageExtra
 
 
 func _ready():
+	resolve_stage(gameMode)
 	spawn_player()
-	print(get_groups())
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if Input.is_action_just_pressed("gp_pause"):
 		isPaused = !isPaused
 		pause()
 
 
-func pause():
-	if isPaused:
-		print("Taking a break?")
-		get_tree().paused = true
-		$World/PauseMenu.show()
-		$World/PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption.grab_focus()
-	if !isPaused:
-		print("Let þ game continue!")
-		get_tree().paused = false
-		$World/PauseMenu.hide()
+func load_stage(stage):
+	if has_node("World"):
+		$World.queue_free()
+	var newStage = stage.instantiate()
+	add_child(newStage)
+
+
+func resolve_stage(mode):
+	match mode:
+		"main":
+			load_stage(stage1)
+		"extra":
+			load_stage(stageExtra)
+		_:
+			load_stage(stageD)
 
 
 func spawn_player():
 	var newPlayer = playerChar.instantiate()
+	#$World.call_deferred("add_child", newPlayer)
+	add_child(newPlayer)
 	newPlayer.position = playerSpawnTarget
-	$World.call_deferred("add_child", newPlayer)
 
 
-func check_bullet_collision(): # for each bullet, check its hitradius for player hitradius
-	pass
+func pause():
+	if isPaused:
+		print("Taking a break?")
+		get_tree().paused = true
+		$PauseMenu.show()
+		$PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption.grab_focus()
+	if !isPaused:
+		print("Let þ game continue!")
+		get_tree().paused = false
+		$PauseMenu.hide()
 
 
 func _on_pause_menu_option_pressed():
