@@ -9,10 +9,10 @@ func _ready(): # make sure ye can use arrow keys for navigation by focusing firs
 	$MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer/StartOption.grab_focus()
 
 
-func start_game(player, mode): #
+func start_game(player, mode): 
 	var newGame = gameMenu.instantiate()
 	newGame.playerType = player
-	newGame.gameMode = mode
+	newGame.gameMode = mode	# main or extra
 	get_parent().add_child(newGame)
 	queue_free()
 
@@ -24,7 +24,7 @@ func _on_start_option_pressed():
 
 func _on_extra_option_pressed():
 	print("Starting extra, please wait coolly...")
-
+	start_game("default", "extra")
 
 func _on_records_option_pressed():
 	print("I rember")

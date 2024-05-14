@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dsgi3c3qhkue2"]
+[gd_scene load_steps=13 format=3 uid="uid://dsgi3c3qhkue2"]
 
+[ext_resource type="Script" path="res://scripts/stage.gd" id="1_2qjie"]
 [ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="1_7ibcp"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHBulletProperties.gd" id="2_cglef"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BulletProps.gd" id="3_2w30i"]
@@ -153,6 +154,8 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 [node name="World" type="Node2D"]
 process_mode = 1
 z_as_relative = false
+script = ExtResource("1_2qjie")
+stage = "debug"
 
 [node name="Spinner" parent="." instance=ExtResource("1_7ibcp")]
 position = Vector2(325, 597)

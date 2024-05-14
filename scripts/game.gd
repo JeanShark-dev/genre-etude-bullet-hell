@@ -20,12 +20,14 @@ var stageExtra
 func _ready():
 	resolve_stage(gameMode)
 	spawn_player()
+	update_ui()
 
 
 func _process(_delta):
 	if Input.is_action_just_pressed("gp_pause"):
 		isPaused = !isPaused
 		pause()
+	update_ui()
 
 
 func load_stage(stage):
@@ -47,7 +49,6 @@ func resolve_stage(mode):
 
 func spawn_player():
 	var newPlayer = playerChar.instantiate()
-	#$World.call_deferred("add_child", newPlayer)
 	add_child(newPlayer)
 	newPlayer.position = playerSpawnTarget
 
@@ -62,6 +63,10 @@ func pause():
 		print("Let þ game continue!")
 		get_tree().paused = false
 		$PauseMenu.hide()
+
+
+func update_ui():
+	$GameUI.stage_labeller($World.stage)
 
 
 func _on_pause_menu_option_pressed():

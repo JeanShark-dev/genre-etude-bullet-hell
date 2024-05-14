@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bujup1hq3yp8c"]
+[gd_scene load_steps=2 format=3 uid="uid://bujup1hq3yp8c"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_1hclu"]
 
 [node name="GameUI" type="ColorRect"]
 offset_left = 800.0
@@ -6,6 +8,7 @@ offset_right = 1280.0
 offset_bottom = 960.0
 size_flags_horizontal = 8
 color = Color(0.427451, 0.270588, 0.290196, 1)
+script = ExtResource("1_1hclu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -25,7 +28,7 @@ layout_mode = 2
 [node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "LEVEL1LABEL"
+text = "LEVEL0LABEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
