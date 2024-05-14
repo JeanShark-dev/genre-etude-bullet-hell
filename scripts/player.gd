@@ -14,9 +14,11 @@ var shot = preload("res://scenes/player_bullet.tscn")
 
 
 func _ready():
-	if type == "default":
-		speed = 500
-	
+	match type:
+		"default":
+			speed = 400
+		_:
+			speed = 300
 	moveSpeed = speed
 
 

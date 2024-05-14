@@ -1,9 +1,6 @@
 extends ColorRect
 
 
-
-
-
 func stage_labeller(stage):
 	var label = $MarginContainer/VBoxContainer/LevelLabel
 	match stage:
