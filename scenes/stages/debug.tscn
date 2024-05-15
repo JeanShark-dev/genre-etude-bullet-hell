@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsgi3c3qhkue2"]
+[gd_scene load_steps=15 format=3 uid="uid://dsgi3c3qhkue2"]
 
 [ext_resource type="Script" path="res://scripts/stages/debugStage.gd" id="1_2qjie"]
 [ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="1_7ibcp"]
@@ -151,6 +151,25 @@ r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
 r_cooldown_n_shoot_choice = ""
 r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
+[sub_resource type="Animation" id="Animation_a7sn2"]
+resource_name = "stage"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wp717"]
+_data = {
+"stage": SubResource("Animation_a7sn2")
+}
+
 [node name="World" type="Node2D"]
 process_mode = 1
 z_as_relative = false
@@ -177,14 +196,7 @@ curve = SubResource("Curve2D_r1x0k")
 script = ExtResource("4_req4y")
 pattern = SubResource("NavigationPolygon_gwlqw")
 
-[node name="TimerContainer" type="Node2D" parent="."]
-
-[node name="StartTimer" type="Timer" parent="TimerContainer"]
-wait_time = 5.0
-one_shot = true
-autostart = true
-
-[node name="SpawnTimer1" type="Timer" parent="TimerContainer"]
-
-[connection signal="timeout" from="TimerContainer/StartTimer" to="." method="_on_start_timer_timeout"]
-[connection signal="timeout" from="TimerContainer/SpawnTimer1" to="." method="_on_spawn_timer_1_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wp717")
+}

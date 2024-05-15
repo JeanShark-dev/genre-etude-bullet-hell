@@ -28,6 +28,7 @@ func _process(delta):
 	shotCooldownOption -= 1
 	shotCooldownOption = clamp(shotCooldownOption, 0, 1024)
 
+
 func _physics_process(delta):
 	if isAlive:
 		var direction = player_input()
