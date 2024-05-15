@@ -8,6 +8,7 @@ func _ready():
 	add_to_group("Enemy")
 
 
+
 func take_damage(damage):
 	healthPoints -= damage
 	if healthPoints <= 0:
