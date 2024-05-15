@@ -153,6 +153,7 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_a7sn2"]
 resource_name = "stage"
+length = 10.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true

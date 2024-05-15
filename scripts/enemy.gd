@@ -14,3 +14,7 @@ func take_damage(damage):
 	healthPoints -= damage
 	if healthPoints <= 0:
 		queue_free()
+
+
+func _on_timer_timeout():
+	queue_free()

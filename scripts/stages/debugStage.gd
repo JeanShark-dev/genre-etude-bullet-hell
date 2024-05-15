@@ -12,18 +12,24 @@ func _ready():
 
 
 func _process(delta):
+	enemy_move(delta)
+
+
+
+func enemy_move(delta):
 	for i in get_children():
 		if i.is_in_group("Enemy"):
 			var direction = i.position.direction_to(i.target)
 			i.position += direction * delta * i.speed
-			print(i, i.position, i.target)
 
 
 func enemy_pattern_1():
 	for i in 9:
+		print("i = ", i)
 		var newEnemy = spinner1.instantiate()
-		newEnemy.position = Vector2(612, -20*i)
-		newEnemy.target = Vector2(612, 600)
+		newEnemy.healthPoints=25
+		newEnemy.position = Vector2(800, -100*(i+1))
+		newEnemy.target = Vector2(400, 1000)
 		newEnemy.add_to_group("enemyPattern1")
 		newEnemy.speed = 250
 		add_child(newEnemy)

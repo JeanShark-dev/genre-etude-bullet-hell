@@ -10,7 +10,7 @@ extends Area2D
 func _physics_process(delta):
 	var velocity = speed * angle * delta
 	position += velocity
-	if position.y < -100:
+	if position.y < 32:
 		queue_free()	# hopefully prevent memory leak
 
 func _on_area_entered(area):
