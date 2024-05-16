@@ -14,6 +14,6 @@ func _physics_process(delta):
 		queue_free()	# hopefully prevent memory leak
 
 func _on_area_entered(area):
-	if area.is_in_group("Enemy"):
+	if area.has_method("take_damage"):
 		area.take_damage(damage)
 		queue_free()

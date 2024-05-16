@@ -29,10 +29,7 @@ func enemy_move(delta):
 
 
 func enemy_shoot(enemyPosition, enemyRotation, pattern): # to be called by enemies only
-	for i in get_children(): # make sure targeted patterns are properly targeted
-		if i.is_in_group("streamer"):
-			i.forced_target = get_parent().get_node("CharacterBody2D")
-	Spawning.spawn({"position": enemyPosition, "rotation": enemyRotation}, pattern)
+	Spawning.spawn({"position": enemyPosition, "rotation": enemyRotation}, pattern, "0")
 
 
 func enemy_pattern_1(): # rammers from þ right
