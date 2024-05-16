@@ -162,12 +162,9 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 6, 12.1, 18.1, 20.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(6, 12.1, 18.1, 20.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
-"args": [],
-"method": &"enemy_pattern_2"
-}, {
 "args": [],
 "method": &"enemy_pattern_1"
 }, {
@@ -200,7 +197,7 @@ position = Vector2(612, 288)
 
 [node name="BulletContainer" type="Node2D" parent="."]
 
-[node name="BulletPattern" type="Path2D" parent="BulletContainer"]
+[node name="BulletPattern" type="Path2D" parent="BulletContainer" groups=["streamer"]]
 curve = SubResource("Curve2D_h8pgs")
 script = ExtResource("2_cglef")
 id = "small"

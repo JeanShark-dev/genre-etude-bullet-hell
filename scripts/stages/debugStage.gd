@@ -12,6 +12,9 @@ var BGMStage = load("res://sound/bgm/ST-01.mp3")
 
 func _ready():
 	$Stage.play("stage") #needed for actually starting þ stage
+	
+	$Spinner/ShotTimer.start()
+	$Spinner.shotPattern = "streamer"
 
 
 func _process(delta):
@@ -25,7 +28,14 @@ func enemy_move(delta):
 			i.position += direction * delta * i.speed
 
 
-func enemy_pattern_1():
+func enemy_shoot(enemyPosition, enemyRotation, pattern): # to be called by enemies only
+	for i in get_children(): # make sure targeted patterns are properly targeted
+		if i.is_in_group("streamer"):
+			i.forced_target = get_parent().get_node("CharacterBody2D")
+	Spawning.spawn({"position": enemyPosition, "rotation": enemyRotation}, pattern)
+
+
+func enemy_pattern_1(): # rammers from þ right
 	for i in 9:
 		var newEnemy = spinner1.instantiate()
 		newEnemy.healthPoints=25
@@ -35,7 +45,8 @@ func enemy_pattern_1():
 		newEnemy.speed = 400
 		add_child(newEnemy)
 
-func enemy_pattern_2():
+
+func enemy_pattern_2(): # rammers from þ left
 	for i in 9:
 		var newEnemy = spinner1.instantiate()
 		newEnemy.healthPoints=25
