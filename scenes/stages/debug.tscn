@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsgi3c3qhkue2"]
+[gd_scene load_steps=16 format=3 uid="uid://dsgi3c3qhkue2"]
 
 [ext_resource type="Script" path="res://scripts/stages/debugStage.gd" id="1_2qjie"]
 [ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="1_7ibcp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/BulletProps.gd" id="3_2w30i"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="4_req4y"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="5_j8iw4"]
+[ext_resource type="AudioStream" uid="uid://d2mo870ac3twi" path="res://sound/bgm/ST-01.mp3" id="7_2bo85"]
 
 [sub_resource type="Curve2D" id="Curve2D_h8pgs"]
 
@@ -153,7 +154,7 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
 [sub_resource type="Animation" id="Animation_a7sn2"]
 resource_name = "stage"
-length = 10.0
+length = 95.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -205,3 +206,7 @@ pattern = SubResource("NavigationPolygon_gwlqw")
 libraries = {
 "": SubResource("AnimationLibrary_wp717")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2bo85")
+autoplay = true

@@ -6,6 +6,9 @@ var stage = "debug"
 # enemies
 var spinner1 = load("res://scenes/enemies/spinner.tscn")
 
+# BGM
+var BGMStage = load("res://sound/bgm/ST-01.mp3")
+
 
 func _ready():
 	$Stage.play("stage") #needed for actually starting þ stage
@@ -13,7 +16,6 @@ func _ready():
 
 func _process(delta):
 	enemy_move(delta)
-
 
 
 func enemy_move(delta):
