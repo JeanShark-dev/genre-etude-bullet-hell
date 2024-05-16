@@ -32,7 +32,16 @@ func enemy_pattern_1():
 		newEnemy.position = Vector2(800+i*-30, -100*(i+1))
 		newEnemy.target = Vector2(400+i*20, 1000)
 		newEnemy.add_to_group("enemyPattern1")
-		newEnemy.speed = 200
+		newEnemy.speed = 400
 		add_child(newEnemy)
 
+func enemy_pattern_2():
+	for i in 9:
+		var newEnemy = spinner1.instantiate()
+		newEnemy.healthPoints=25
+		newEnemy.position = Vector2(200+i*30, -100*(i+1))
+		newEnemy.target = Vector2(400+i*-20, 1000)
+		newEnemy.add_to_group("enemyPattern2")
+		newEnemy.speed = 400
+		add_child(newEnemy)
 
