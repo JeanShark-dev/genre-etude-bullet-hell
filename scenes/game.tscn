@@ -87,6 +87,78 @@ offset_bottom = 272.0
 theme_override_font_sizes/font_size = 32
 text = "PAUSEDLABEL"
 
+[node name="GameOverMenu" type="Node2D" parent="."]
+
+[node name="GameOverBG" type="ColorRect" parent="GameOverMenu"]
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 800.0
+offset_bottom = 928.0
+color = Color(0.121569, 0.121569, 0.121569, 0.121569)
+
+[node name="GameOverContainer" type="HBoxContainer" parent="GameOverMenu/GameOverBG"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 298.0
+offset_right = 704.0
+offset_bottom = 399.0
+
+[node name="GameOverOptions" type="VBoxContainer" parent="GameOverMenu/GameOverBG/GameOverContainer"]
+layout_mode = 2
+
+[node name="GameOverOption" type="Button" parent="GameOverMenu/GameOverBG/GameOverContainer/GameOverOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../GameOverOption2")
+theme_override_font_sizes/font_size = 16
+
+[node name="GameOverOption2" type="Button" parent="GameOverMenu/GameOverBG/GameOverContainer/GameOverOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../GameOverOption")
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUQUIT"
+
+[node name="GameOverOption3" type="Button" parent="GameOverMenu/GameOverBG/GameOverContainer/GameOverOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_bottom = NodePath("../GameOverOption")
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUQUIT"
+
+[node name="GameOverFlavor" type="VBoxContainer" parent="GameOverMenu/GameOverBG/GameOverContainer"]
+layout_mode = 2
+
+[node name="GameOverFlavor" type="Label" parent="GameOverMenu/GameOverBG/GameOverContainer/GameOverFlavor"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUCONTINUE_FLAVOURTEXT"
+vertical_alignment = 1
+
+[node name="GameOverFlavor2" type="Label" parent="GameOverMenu/GameOverBG/GameOverContainer/GameOverFlavor"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUQUIT_FLAVOURTEXT"
+vertical_alignment = 1
+
+[node name="GameOverFlavor3" type="Label" parent="GameOverMenu/GameOverBG/GameOverContainer/GameOverFlavor"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "PAUSEMENUQUIT_FLAVOURTEXT"
+vertical_alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="GameOverMenu/GameOverBG"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 227.0
+offset_right = 350.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 32
+text = "GAMEOVERLABEL"
+
 [connection signal="pressed" from="PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption" to="." method="_on_pause_menu_option_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption2" to="." method="_on_pause_menu_option_2_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseBG/PauseMenuContainer/PauseMenuOptions/PauseMenuOption3" to="." method="_on_pause_menu_option_3_pressed"]

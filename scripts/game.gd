@@ -4,6 +4,7 @@ extends Node2D
 var playerSpawnTarget = Vector2(420, 750)
 var playerChar = load("res://scenes/character.tscn")
 var playerType
+var playerLives = 4
 var gameMode
 var isPaused = false
 
