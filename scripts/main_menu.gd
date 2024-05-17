@@ -1,30 +1,18 @@
 extends Control
 
 
-var gameMenu = load("res://scenes/game.tscn")
-var playerCharacter = load("res://scenes/character.tscn")
-
-
 func _ready(): # make sure ye can use arrow keys for navigation by focusing first button
 	$MarginContainer/HBoxContainer/VBoxContainer/MenuOptionContainer/StartOption.grab_focus()
 
 
-func start_game(player, mode): 
-	var newGame = gameMenu.instantiate()
-	newGame.playerType = player
-	newGame.gameMode = mode	# main or extra
-	get_parent().add_child(newGame)
-	queue_free()
-
-
 func _on_start_option_pressed():
 	print("Starting game, please wait warmly...")
-	start_game("default", "default")
+	get_parent().start_game("default", "default")
 
 
 func _on_extra_option_pressed():
 	print("Starting extra, please wait coolly...")
-	start_game("default", "extra")
+	get_parent().start_game("default", "extra")
 
 func _on_records_option_pressed():
 	print("I rember")
