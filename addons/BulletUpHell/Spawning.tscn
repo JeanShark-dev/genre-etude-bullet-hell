@@ -53,7 +53,7 @@ cull_fixed_screen = true
 
 [node name="SharedAreas" type="Node2D" parent="."]
 
-[node name="0" type="Area2D" parent="SharedAreas"]
+[node name="0" type="Area2D" parent="SharedAreas" groups=["Enemy"]]
 
 [node name="ShapeManager" type="AnimatedSprite2D" parent="."]
 visible = false
