@@ -5,6 +5,7 @@ var playerSpawnTarget = Vector2(420, 750)
 var playerChar = load("res://scenes/character.tscn")
 var playerType
 var playerLives = 4
+var continuesUsed = 0
 var gameMode
 var isPaused = false
 
@@ -49,9 +50,13 @@ func resolve_stage(mode):
 
 
 func spawn_player():
+	if playerLives <= 0:
+		game_over()
+		return
 	var newPlayer = playerChar.instantiate()
 	add_child(newPlayer)
 	newPlayer.position = playerSpawnTarget
+	playerLives -= 1
 
 
 func pause():
@@ -66,21 +71,53 @@ func pause():
 		$PauseMenu.hide()
 
 
+func game_over():
+	print("A setback...")
+	get_tree().paused = true
+	$GameOverMenu.show()
+	$GameOverMenu/GameOverBG/GameOverContainer/GameOverOptions/GameOverOption.grab_focus()
+
+
 func update_ui():
 	$GameUI.stage_labeller($World.stage)
 
 
-func _on_pause_menu_option_pressed():
+func _on_pause_menu_option_pressed(): # continue
 	isPaused = !isPaused
 	pause()
 
 
-func _on_pause_menu_option_2_pressed():
-	pass # Replace with function body.
+func _on_pause_menu_option_2_pressed(): # retry from beginning
+	print("an oþer chance?")
+	get_tree().paused = false
+	get_parent().start_game(playerType, gameMode)
+	queue_free()
 
 
-func _on_pause_menu_option_3_pressed():
+func _on_pause_menu_option_3_pressed(): # quit to menu
 	print("'til next time!")
+	get_tree().paused = false
+	get_parent().load_main_menu()
+	queue_free()
+
+
+func _on_game_over_option_pressed(): # use a continue
+	playerLives = 4
+	spawn_player()
+	$GameOverMenu.hide()
+	continuesUsed += 1
+	get_tree().paused = false
+
+
+func _on_game_over_option_2_pressed(): # retry from beginning
+	print("if at first þu succeedeþ not...")
+	get_tree().paused = false
+	get_parent().start_game(playerType, gameMode)
+	queue_free()
+
+
+func _on_game_over_option_3_pressed(): # quit to menu
+	print("Better luck next time!")
 	get_tree().paused = false
 	get_parent().load_main_menu()
 	queue_free()

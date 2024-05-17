@@ -18,5 +18,4 @@ func start_game(player, mode):
 	var newGame = gameMenu.instantiate()
 	newGame.playerType = player
 	newGame.gameMode = mode	# main or extra
-	get_parent().add_child(newGame)
-	queue_free()
+	add_child(newGame)
