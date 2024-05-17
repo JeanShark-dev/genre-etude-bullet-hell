@@ -37,6 +37,7 @@ func load_stage(stage):
 		$World.queue_free()
 	var newStage = stage.instantiate()
 	add_child(newStage)
+	Spawning.reset_bullets()
 
 
 func resolve_stage(mode):
@@ -89,6 +90,7 @@ func _on_pause_menu_option_pressed(): # continue
 
 func _on_pause_menu_option_2_pressed(): # retry from beginning
 	print("an oþer chance?")
+	Spawning.reset_bullets()
 	get_tree().paused = false
 	get_parent().start_game(playerType, gameMode)
 	queue_free()
@@ -96,12 +98,14 @@ func _on_pause_menu_option_2_pressed(): # retry from beginning
 
 func _on_pause_menu_option_3_pressed(): # quit to menu
 	print("'til next time!")
+	Spawning.reset_bullets()
 	get_tree().paused = false
 	get_parent().load_main_menu()
 	queue_free()
 
 
 func _on_game_over_option_pressed(): # use a continue
+	Spawning.reset_bullets()
 	playerLives = 4
 	spawn_player()
 	$GameOverMenu.hide()
@@ -111,6 +115,7 @@ func _on_game_over_option_pressed(): # use a continue
 
 func _on_game_over_option_2_pressed(): # retry from beginning
 	print("if at first þu succeedeþ not...")
+	Spawning.reset_bullets()
 	get_tree().paused = false
 	get_parent().start_game(playerType, gameMode)
 	queue_free()
@@ -118,6 +123,7 @@ func _on_game_over_option_2_pressed(): # retry from beginning
 
 func _on_game_over_option_3_pressed(): # quit to menu
 	print("Better luck next time!")
+	Spawning.reset_bullets()
 	get_tree().paused = false
 	get_parent().load_main_menu()
 	queue_free()
