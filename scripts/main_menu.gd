@@ -8,11 +8,14 @@ func _ready(): # make sure ye can use arrow keys for navigation by focusing firs
 func _on_start_option_pressed():
 	print("Starting game, please wait warmly...")
 	get_parent().start_game("default", "default")
+	queue_free()
 
 
 func _on_extra_option_pressed():
 	print("Starting extra, please wait coolly...")
 	get_parent().start_game("default", "extra")
+	queue_free()
+
 
 func _on_records_option_pressed():
 	print("I rember")
