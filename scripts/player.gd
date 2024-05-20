@@ -7,7 +7,9 @@ var moveSpeed
 var isAlive = true # use as a respawn timer later
 var isVincible = false # for i-frames
 var isShooting = false
+var shotCadenceMain = 0.05
 var shotCooldownMain = 0
+var shotCadenceOption = 0.25
 var shotCooldownOption = 0
 var mainGun = [Vector2(7,0), Vector2(-7,0)]
 var shot = preload("res://scenes/player_bullet.tscn")
@@ -23,9 +25,9 @@ func _ready():
 
 
 func _process(delta):
-	shotCooldownMain -= 1
+	shotCooldownMain -= delta
 	shotCooldownMain = clamp(shotCooldownMain, 0, 1024)
-	shotCooldownOption -= 1
+	shotCooldownOption -= delta
 	shotCooldownOption = clamp(shotCooldownOption, 0, 1024)
 
 
@@ -53,8 +55,8 @@ func player_input():
 
 
 func shoot():
-	if shotCooldownMain == 0 && isShooting:
-		shotCooldownMain = 5
+	if shotCooldownMain <= 0:
+		shotCooldownMain = shotCadenceMain
 		for i in 2:
 			var newBullet = shot.instantiate()
 			newBullet.position = mainGun[i] + position
