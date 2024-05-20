@@ -6,6 +6,7 @@
 b = Vector2(0, 21)
 
 [node name="PlayerBullet" type="Area2D"]
+process_mode = 1
 script = ExtResource("1_pbflc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
