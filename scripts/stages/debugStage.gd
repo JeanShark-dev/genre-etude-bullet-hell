@@ -57,3 +57,14 @@ func enemy_pattern_2(): # rammers from þ left
 		newEnemy.speed = 400
 		add_child(newEnemy)
 
+func enemy_pattern_3(): # firing line fires salvos at player
+	for i in 7:
+		var newEnemy = spinner1.instantiate()
+		newEnemy.healthPoints = 50
+		newEnemy.position = Vector2(150+i*100, -100)
+		newEnemy.target = Vector2(150+i*100, 250)
+		newEnemy.add_to_group("enemyPattern3")
+		newEnemy.speed = 200
+		newEnemy.shotPattern = "streamer"
+		add_child(newEnemy)
+		newEnemy.get_node("ShotTimer").start()
