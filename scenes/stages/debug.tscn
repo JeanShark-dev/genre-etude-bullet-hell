@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsgi3c3qhkue2"]
+[gd_scene load_steps=23 format=3 uid="uid://dsgi3c3qhkue2"]
 
 [ext_resource type="Script" path="res://scripts/stages/debugStage.gd" id="1_2qjie"]
 [ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="1_7ibcp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="4_req4y"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="5_j8iw4"]
 [ext_resource type="AudioStream" uid="uid://d2mo870ac3twi" path="res://sound/bgm/ST-01.mp3" id="7_2bo85"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="7_qwtjt"]
 
 [sub_resource type="Curve2D" id="Curve2D_h8pgs"]
 
@@ -103,6 +104,101 @@ r_scale_multi_curve_choice = []
 r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
+[sub_resource type="Curve2D" id="Curve2D_jlxu2"]
+
+[sub_resource type="Curve" id="Curve_m6kn1"]
+
+[sub_resource type="Curve" id="Curve_kp86e"]
+
+[sub_resource type="PackedDataContainer" id="PackedDataContainer_gwtwh"]
+script = ExtResource("3_2w30i")
+speed = 300.0
+scale = 1
+angle = 0
+groups = []
+anim_idle_texture = "0"
+anim_spawn_texture = ""
+anim_waiting_texture = ""
+anim_delete_texture = ""
+anim_idle_collision = "0"
+anim_spawn_collision = ""
+anim_waiting_collision = ""
+anim_delete_collision = ""
+anim_idle_sfx = -1
+anim_spawn_sfx = -1
+anim_waiting_sfx = -1
+anim_delete_sfx = -1
+spec_bounces = 0
+spec_no_collision = false
+spec_modulate_loop = 0.0
+spec_skew = 0.0
+spec_trail_length = 0.0
+spec_trail_width = 0.0
+spec_trail_modulate = Color(1, 1, 1, 1)
+spec_rotating_speed = 0.0
+spec_angle_no_colliding = null
+spec_angle_no_coll_offset = null
+death_after_time = 30.0
+death_outside_box = Rect2(0, 0, 0, 0)
+death_from_collision = true
+a_direction_equation = ""
+a_curve_movement = 0
+a_speed_multiplier = SubResource("Curve_m6kn1")
+a_speed_multi_iterations = 0
+a_speed_multi_scale = 0.0
+trigger_container = ""
+trigger_wait_for_shot = true
+homing_type = 0
+homing_target = NodePath("")
+homing_steer = 0
+homing_time_start = 0
+homing_duration = 999
+scale_multi_iterations = 0
+scale_multiplier = SubResource("Curve_kp86e")
+scale_multi_scale = 1
+r_randomisation_chances = 1.0
+r_speed_choice = ""
+r_speed_variation = Vector3(0, 0, 0)
+r_scale_choice = ""
+r_scale_variation = Vector3(0, 0, 0)
+r_angle_choice = ""
+r_angle_variation = Vector3(0, 0, 0)
+r_group_choice = []
+r_bounce_choice = ""
+r_bounce_variation = Vector3(0, 0, 0)
+r_no_coll_chances = 0.0
+r_modulate_variation = Vector3(0, 0, 0)
+r_trail_length_variation = Vector3(0, 0, 0)
+r_trail_color_variation = Vector3(0, 0, 0)
+r_rotating_variation = Vector3(0, 0, 0)
+r_death_after_choice = ""
+r_death_after_variation = Vector3(0, 0, 0)
+r_death_outside_chances = 0.0
+r_dir_equation_choice = ""
+r_curve_choice = []
+r_speed_multi_curve_choice = []
+r_speed_multi_iter_variation = Vector3(0, 0, 0)
+r_speed_multi_scale_variation = Vector3(0, 0, 0)
+r_trigger_choice = ""
+r_wait_for_shot_chances = 0.0
+r_homing_target_choice = []
+r_special_target_choice = ""
+r_group_target_choice = ""
+r_pos_target_choice = ""
+r_steer_choice = ""
+r_steer_variation = Vector3(0, 0, 0)
+r_homing_delay_choice = ""
+r_homing_delay_variation = Vector3(0, 0, 0)
+r_homing_dur_choice = ""
+r_homing_dur_variation = Vector3(0, 0, 0)
+r_beam_length_choice = ""
+r_beam_length_variation = Vector3(0, 0, 0)
+r_beam_bounce_choice = ""
+r_beam_width_variation = Vector3(0, 0, 0)
+r_scale_multi_curve_choice = []
+r_scale_multi_iter_variation = Vector3(0, 0, 0)
+r_scale_multi_scale_variation = Vector3(0, 0, 0)
+
 [sub_resource type="Curve2D" id="Curve2D_r1x0k"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_gwlqw"]
@@ -152,6 +248,69 @@ r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
 r_cooldown_n_shoot_choice = ""
 r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
+[sub_resource type="Curve2D" id="Curve2D_i5c0f"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rgtcd"]
+resource_name = "PatternCircle"
+source_geometry_group_name = &"navigation_polygon_source_group"
+script = ExtResource("7_qwtjt")
+bullet = "fast"
+nbr = 3
+radius = 1.0
+angle_total = 1.804
+angle_decal = 0
+pattern_angle = 1.0004
+symmetric = false
+center = 0
+iterations = 2
+follows_parent = false
+forced_angle = 0.0
+forced_target = NodePath("../../PlayerTracker")
+forced_lookat_mouse = false
+forced_pattern_lookat = true
+cooldown_stasis = false
+cooldown_spawn = 0.017
+cooldown_shoot = 0.017
+cooldown_next_spawn = 0.017
+cooldown_next_shoot = 0.0
+wait_latence = 0
+wait_tween_momentum = 0
+wait_tween_length = 0.0
+wait_tween_time = 0.0
+layer_nbr = 2
+layer_cooldown_spawn = 0.0
+layer_pos_offset = 0.0
+layer_speed_offset = -1.0
+layer_angle_offset = 0.0
+r_randomisation_chances = 1.0
+r_radius_choice = ""
+r_radius_variation = Vector3(0, 0, 0)
+r_angle_total_choice = ""
+r_angle_total_variation = Vector3(0, 0, 0)
+r_angle_decal_choice = ""
+r_angle_decal_variation = Vector3(0, 0, 0)
+r_symmetry_chances = 0.0
+r_bullet_choice = ""
+r_bullet_nbr_choice = ""
+r_bullet_nbr_variation = Vector3(0, 0, 0)
+r_pattern_angle_choice = ""
+r_pattern_angle_variation = Vector3(0, 0, 0)
+r_infinite_iter_chances = 0.0
+r_iterations_choice = ""
+r_iterations_variation = Vector3(0, 0, 0)
+r_forced_angle_choice = ""
+r_forced_angle_variation = Vector3(0, 0, 0)
+r_forced_target_choice = []
+r_stasis_chances = 0.0
+r_cooldown_spawn_choice = ""
+r_cooldown_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_shoot_choice = ""
+r_cooldown_shoot_variation = Vector3(0, 0, 0)
+r_cooldown_n_spawn_choice = ""
+r_cooldown_n_spawn_variation = Vector3(0, 0, 0)
+r_cooldown_n_shoot_choice = ""
+r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
+
 [sub_resource type="Animation" id="Animation_a7sn2"]
 resource_name = "stage"
 length = 95.0
@@ -162,9 +321,12 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(6, 12.1, 18.1, 20.1, 25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(2, 6, 12.1, 18.1, 20.1, 26, 32, 35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [],
+"method": &"enemy_pattern_5"
+}, {
 "args": [],
 "method": &"enemy_pattern_1"
 }, {
@@ -179,6 +341,12 @@ tracks/0/keys = {
 }, {
 "args": [],
 "method": &"enemy_pattern_3"
+}, {
+"args": [],
+"method": &"enemy_pattern_4"
+}, {
+"args": [],
+"method": &"enemy_pattern_5"
 }]
 }
 
@@ -206,6 +374,12 @@ script = ExtResource("2_cglef")
 id = "small"
 props = SubResource("PackedDataContainer_kvdre")
 
+[node name="BulletPattern2" type="Path2D" parent="BulletContainer"]
+curve = SubResource("Curve2D_jlxu2")
+script = ExtResource("2_cglef")
+id = "fast"
+props = SubResource("PackedDataContainer_gwtwh")
+
 [node name="PatternContainer" type="Node2D" parent="."]
 
 [node name="SpawnPattern" type="Path2D" parent="PatternContainer"]
@@ -213,6 +387,12 @@ curve = SubResource("Curve2D_r1x0k")
 script = ExtResource("4_req4y")
 id = "streamer"
 pattern = SubResource("NavigationPolygon_gwlqw")
+
+[node name="SpawnPattern2" type="Path2D" parent="PatternContainer"]
+curve = SubResource("Curve2D_i5c0f")
+script = ExtResource("4_req4y")
+id = "drive-by"
+pattern = SubResource("NavigationPolygon_rgtcd")
 
 [node name="Stage" type="AnimationPlayer" parent="."]
 libraries = {

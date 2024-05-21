@@ -60,3 +60,33 @@ func enemy_pattern_3(): # firing line fires salvos at player
 		newEnemy.shotPattern = "streamer"
 		add_child(newEnemy)
 		newEnemy.get_node("ShotTimer").start()
+
+func enemy_pattern_4(): # drive-by by þ right
+	for i in 5:
+		var newEnemy = spinner1.instantiate()
+		newEnemy.healthPoints = 25
+		newEnemy.position = Vector2(700, -100 - i * 200)
+		newEnemy.target = Vector2(700, 700)
+		newEnemy.targetList = [Vector2(200, 1000), Vector2(100, 9000)]
+		newEnemy.speed = 600
+		newEnemy.shotPattern = "drive-by"
+		newEnemy.shotAmount = 3
+		newEnemy.shotCoolDown = 0.5
+		newEnemy.shotStartUp = 1 + (i+1) * 0.05
+		newEnemy.get_node("StartTimer").autostart = true
+		add_child(newEnemy)
+
+func enemy_pattern_5(): # drive-by by þ left
+	for i in 5:
+		var newEnemy = spinner1.instantiate()
+		newEnemy.healthPoints = 25
+		newEnemy.position = Vector2(200, -100 - i * 200)
+		newEnemy.target = Vector2(200, 200)
+		newEnemy.targetList = [Vector2(700, 1000), Vector2(800, 9000)]
+		newEnemy.speed = 600
+		newEnemy.shotPattern = "drive-by"
+		newEnemy.shotAmount = 3
+		newEnemy.shotCoolDown = 0.5
+		newEnemy.shotStartUp = 1 + (i+1) * 0.05
+		newEnemy.get_node("StartTimer").autostart = true
+		add_child(newEnemy)
