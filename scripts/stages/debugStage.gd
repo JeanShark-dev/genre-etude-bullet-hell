@@ -2,6 +2,8 @@ extends Node2D
 
 #basics
 var stage = "debug"
+var tracker
+var player
 
 # enemies
 var spinner1 = load("res://scenes/enemies/spinner.tscn")
@@ -12,13 +14,15 @@ var BGMStage = load("res://sound/bgm/ST-01.mp3")
 
 func _ready():
 	$Stage.play("stage") #needed for actually starting þ stage
-	
+	tracker = $PlayerTracker
 	$Spinner/ShotTimer.start()
 	$Spinner.shotPattern = "streamer"
 
 
 func _process(delta):
 	enemy_move(delta)
+	if player != null:
+		tracker.position = player.position
 
 
 func enemy_move(delta):

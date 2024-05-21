@@ -57,6 +57,7 @@ func spawn_player():
 	var newPlayer = playerChar.instantiate()
 	add_child(newPlayer)
 	newPlayer.position = playerSpawnTarget
+	$World.player = newPlayer
 	playerLives -= 1
 
 
