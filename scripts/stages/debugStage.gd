@@ -39,7 +39,7 @@ func enemy_shoot(enemyPosition, enemyRotation, pattern): # to be called by enemi
 func enemy_pattern_1(): # rammers from þ right
 	for i in 9:
 		var newEnemy = spinner1.instantiate()
-		newEnemy.healthPoints=25
+		newEnemy.healthPoints=50
 		newEnemy.position = Vector2(800+i*-30, -100*(i+1))
 		newEnemy.target = Vector2(400+i*20, 1000)
 		newEnemy.add_to_group("enemyPattern1")
@@ -50,7 +50,7 @@ func enemy_pattern_1(): # rammers from þ right
 func enemy_pattern_2(): # rammers from þ left
 	for i in 9:
 		var newEnemy = spinner1.instantiate()
-		newEnemy.healthPoints=25
+		newEnemy.healthPoints=50
 		newEnemy.position = Vector2(200+i*30, -100*(i+1))
 		newEnemy.target = Vector2(400+i*-20, 1000)
 		newEnemy.add_to_group("enemyPattern2")
@@ -60,7 +60,7 @@ func enemy_pattern_2(): # rammers from þ left
 func enemy_pattern_3(): # firing line fires salvos at player
 	for i in 7:
 		var newEnemy = spinner1.instantiate()
-		newEnemy.healthPoints = 50
+		newEnemy.healthPoints = 150
 		newEnemy.position = Vector2(150+i*100, -100)
 		newEnemy.target = Vector2(150+i*100, 250)
 		newEnemy.add_to_group("enemyPattern3")

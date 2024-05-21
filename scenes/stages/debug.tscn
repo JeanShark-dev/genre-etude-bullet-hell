@@ -16,7 +16,7 @@
 
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_kvdre"]
 script = ExtResource("3_2w30i")
-speed = 100.0
+speed = 150.0
 scale = 1
 angle = 0
 groups = []
