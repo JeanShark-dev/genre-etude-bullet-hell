@@ -58,8 +58,8 @@ func enemy_pattern_3(): # firing line fires salvos at player
 		newEnemy.add_to_group("enemyPattern3")
 		newEnemy.speed = 400
 		newEnemy.shotPattern = "streamer"
+		newEnemy.get_node("StartTimer").autostart = true
 		add_child(newEnemy)
-		newEnemy.get_node("ShotTimer").start()
 
 func enemy_pattern_4(): # drive-by by þ right
 	for i in 5:
