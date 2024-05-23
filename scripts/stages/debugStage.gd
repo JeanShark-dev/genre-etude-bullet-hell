@@ -65,16 +65,16 @@ func enemy_pattern_4(): # drive-by by þ right
 	for i in 5:
 		var newEnemy = spinner1.instantiate()
 		newEnemy.healthPoints = 25
-		newEnemy.position = Vector2(700, -100 - i * 200)
+		newEnemy.position = Vector2(700, -500 - i * 200)
 		newEnemy.target = Vector2(700, 700)
 		newEnemy.targetList = [Vector2(200, 1000), Vector2(100, 9000)]
 		newEnemy.speed = 600
 		newEnemy.shotPattern = "drive-by"
-		newEnemy.shotAmount = 3
+		newEnemy.shotAmount = 1
 		newEnemy.shotCoolDown = 0.5
-		newEnemy.shotStartUp = 1 + (i+1) * 0.05
-		newEnemy.get_node("StartTimer").autostart = true
+		newEnemy.shotStartUp = i * 0.5
 		add_child(newEnemy)
+		newEnemy.get_node("StartTimer").start()
 
 func enemy_pattern_5(): # drive-by by þ left
 	for i in 5:
@@ -85,8 +85,8 @@ func enemy_pattern_5(): # drive-by by þ left
 		newEnemy.targetList = [Vector2(700, 1000), Vector2(800, 9000)]
 		newEnemy.speed = 600
 		newEnemy.shotPattern = "drive-by"
-		newEnemy.shotAmount = 3
+		newEnemy.shotAmount = 1
 		newEnemy.shotCoolDown = 0.5
-		newEnemy.shotStartUp = 1 + (i+1) * 0.05
-		newEnemy.get_node("StartTimer").autostart = true
+		newEnemy.shotStartUp = i * 0.5
 		add_child(newEnemy)
+		newEnemy.get_node("StartTimer").start()

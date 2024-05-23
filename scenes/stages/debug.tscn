@@ -267,11 +267,11 @@ wait_latence = 0
 wait_tween_momentum = 0
 wait_tween_length = 0.0
 wait_tween_time = 0.0
-layer_nbr = 3
-layer_cooldown_spawn = 0.2
+layer_nbr = 1
+layer_cooldown_spawn = 0.0
 layer_pos_offset = 0.0
-layer_speed_offset = 1.0
-layer_angle_offset = 0.0
+layer_speed_offset = 0.0
+layer_angle_offset = 0.0004
 r_randomisation_chances = 1.0
 r_bullet_choice = ""
 r_bullet_nbr_choice = ""
@@ -304,11 +304,11 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2, 6, 12.1, 18.1, 20.1, 26, 32, 35),
+"times": PackedFloat32Array(3, 6, 12.1, 18.1, 20.1, 26, 32, 35),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
-"method": &"enemy_pattern_5"
+"method": &"enemy_pattern_4"
 }, {
 "args": [],
 "method": &"enemy_pattern_1"
