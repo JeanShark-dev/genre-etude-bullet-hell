@@ -2,53 +2,38 @@ extends Area2D
 
 
 @export var healthPoints: int = 100
-var target: Vector2
-var targetList: Array
-var speed: int
-var shotPattern
-var shotAmount = 0
-var shotCoolDown = 1.0
-var shotStartUp = 1.0
+@export var target: Vector2
+@export var speed: int
+@export var shotPattern: String
+@export var shotAmount = 0
+@export var shotCoolDown = 1.0
+@export var shotStartUp = 1.0
+var isReady = false
 
-
-func _ready():
-	$StartTimer.wait_time = shotStartUp
-	add_to_group("Enemy")
 
 
 func _process(delta):
-	move(delta)
+	if isReady:
+		move(delta)
 
 
 func take_damage(damage):
 	healthPoints -= damage
 	if healthPoints <= 0:
-		queue_free()
+		get_parent().queue_free()
 
 
 func spawn_self():
-	pass
+	$StartTimer.wait_time = shotStartUp
+	add_to_group("Enemy")
 
 
 func move(delta):
-	var direction = position.direction_to(target)
-	if position == target:
-		switch_target()
-		return
-	if position.distance_to(target) < delta * speed:
-		position = target
-		return
-	position += direction * delta * speed
-
-
-func switch_target():
-		if !targetList.is_empty():
-			target = targetList.pop_front()
-
+	get_parent().progress += speed * delta
 
 
 func _on_timer_timeout():
-	queue_free()
+	get_parent().queue_free()
 
 
 func _on_shot_timer_timeout():

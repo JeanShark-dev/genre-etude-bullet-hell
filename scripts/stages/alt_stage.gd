@@ -2,7 +2,7 @@ extends Node2D
 
 #basics
 var stage = "debug"
-var stageSpeed = 100
+var stageSpeed = 1000
 var tracker
 var player
 @onready var spawner = $EnemySpawner
@@ -30,4 +30,9 @@ func enemy_shoot(enemyPosition, enemyRotation, pattern): # to be called by enemi
 
 func _on_enemy_spawner_area_entered(area):
 	if area.has_method("spawn_self"):
-		print("Enemy detected!")
+		var newPathFollow
+		newPathFollow = PathFollow2D.new()
+		$EnemyContainer.get_node("Path2D").add_child(newPathFollow)
+		area.reparent(newPathFollow)
+		area.isReady = true
+		print("Area found")

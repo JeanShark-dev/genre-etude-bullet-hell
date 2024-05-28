@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c00as5ytebm1x"]
+
+[ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="1_aeotv"]
+
+[node name="SpinnerPath" type="PathFollow2D"]
+
+[node name="Spinner" parent="." instance=ExtResource("1_aeotv")]

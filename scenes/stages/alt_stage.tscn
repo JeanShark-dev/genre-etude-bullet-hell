@@ -1,14 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6rtufubienrh"]
+[gd_scene load_steps=5 format=3 uid="uid://b6rtufubienrh"]
 
 [ext_resource type="Script" path="res://scripts/stages/alt_stage.gd" id="1_6gbow"]
-[ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="2_65mkx"]
 [ext_resource type="AudioStream" uid="uid://d2mo870ac3twi" path="res://sound/bgm/ST-01.mp3" id="2_kiyj8"]
 
 [sub_resource type="Curve2D" id="Curve2D_hteev"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 75, -75, -106.38, -110.875, 106.38, 110.875, 165, 151, -257.709, 44.9492, 257.709, -44.9492, 305, 273, 573.852, 79.4103, -573.852, -79.4103, 492, 430, -404.543, 157.322, 404.543, -157.322, 588, 585, 277.187, 353.6, -277.187, -353.6, 625, 830, -895.988, -412.034, 895.988, 412.034, 570, 1098)
+"points": PackedVector2Array(66.6708, 117.468, -66.6708, -117.468, 118, 372, 15.8499, -191.039, -15.8499, 191.039, 441, 263, 0, 0, 0, 0, 118, 371)
 }
-point_count = 7
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qsy2"]
 size = Vector2(1291, 20)
@@ -20,22 +19,9 @@ metadata/_edit_vertical_guides_ = [-126.0]
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 
-[node name="Spinner" parent="EnemyContainer" instance=ExtResource("2_65mkx")]
-position = Vector2(186, -213)
-
-[node name="Spinner2" parent="EnemyContainer" instance=ExtResource("2_65mkx")]
-position = Vector2(468, -489)
-
-[node name="Spinner3" parent="EnemyContainer" instance=ExtResource("2_65mkx")]
-position = Vector2(416, -263)
-
 [node name="Path2D" type="Path2D" parent="EnemyContainer"]
 position = Vector2(-13, 6)
 curve = SubResource("Curve2D_hteev")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="EnemyContainer/Path2D"]
-position = Vector2(75, -75)
-rotation = 1.19182
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kiyj8")
