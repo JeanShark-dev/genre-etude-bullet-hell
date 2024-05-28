@@ -26,6 +26,10 @@ func take_damage(damage):
 		queue_free()
 
 
+func spawn_self():
+	pass
+
+
 func move(delta):
 	var direction = position.direction_to(target)
 	if position == target:
