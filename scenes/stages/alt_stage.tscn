@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6rtufubienrh"]
+
+[ext_resource type="Script" path="res://scripts/stages/alt_stage.gd" id="1_6gbow"]
+[ext_resource type="AudioStream" uid="uid://d2mo870ac3twi" path="res://sound/bgm/ST-01.mp3" id="2_kiyj8"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_6gbow")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kiyj8")
+autoplay = true
+
+[node name="PlayerTracker" type="Node2D" parent="."]
+position = Vector2(215, 137)
