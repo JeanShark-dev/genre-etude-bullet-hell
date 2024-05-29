@@ -9,10 +9,15 @@ extends Area2D
 @export var shotCoolDown = 1.0
 @export var shotStartUp = 1.0
 var isReady = false
+var worldNode
+var pathNode
 
 
+func _ready():
+	worldNode = get_parent().get_parent()
 
-func _process(delta):
+
+func _physics_process(delta):
 	if isReady:
 		move(delta)
 
@@ -20,25 +25,27 @@ func _process(delta):
 func take_damage(damage):
 	healthPoints -= damage
 	if healthPoints <= 0:
-		get_parent().queue_free()
+		queue_free()
 
 
 func spawn_self():
 	$StartTimer.wait_time = shotStartUp
 	add_to_group("Enemy")
+	position = Vector2(0,0)
+	pathNode = get_parent()
 
 
 func move(delta):
-	get_parent().progress += speed * delta
+	pathNode.progress += speed * delta
 
 
 func _on_timer_timeout():
-	get_parent().queue_free()
+	queue_free()
 
 
 func _on_shot_timer_timeout():
 	shotAmount -= 1
-	get_parent().enemy_shoot(position, rotation, shotPattern)
+	worldNode.enemy_shoot(position, rotation, shotPattern)
 	if shotAmount == 0:
 		$ShotTimer.stop()
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6rtufubienrh"]
+[gd_scene load_steps=6 format=3 uid="uid://b6rtufubienrh"]
 
 [ext_resource type="Script" path="res://scripts/stages/alt_stage.gd" id="1_6gbow"]
 [ext_resource type="AudioStream" uid="uid://d2mo870ac3twi" path="res://sound/bgm/ST-01.mp3" id="2_kiyj8"]
+[ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="2_q1ty3"]
 
 [sub_resource type="Curve2D" id="Curve2D_hteev"]
 _data = {
@@ -22,6 +23,18 @@ metadata/_edit_vertical_guides_ = [-126.0]
 [node name="Path2D" type="Path2D" parent="EnemyContainer"]
 position = Vector2(-13, 6)
 curve = SubResource("Curve2D_hteev")
+
+[node name="Spinner" parent="EnemyContainer" instance=ExtResource("2_q1ty3")]
+position = Vector2(278, -142)
+speed = 300
+
+[node name="Spinner2" parent="EnemyContainer" instance=ExtResource("2_q1ty3")]
+position = Vector2(425, -356)
+speed = 100
+
+[node name="Spinner3" parent="EnemyContainer" instance=ExtResource("2_q1ty3")]
+position = Vector2(493, -588)
+speed = 200
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kiyj8")

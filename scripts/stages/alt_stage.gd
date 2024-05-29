@@ -22,6 +22,9 @@ func _process(delta):
 	if player != null:
 		tracker.position = player.position
 	spawner.position += Vector2(0,-1) * stageSpeed * delta
+	for i in $EnemyContainer/Path2D.get_children():
+		if i.get_child_count() == 0:
+			i.queue_free()
 
 
 func enemy_shoot(enemyPosition, enemyRotation, pattern): # to be called by enemies only
@@ -33,6 +36,9 @@ func _on_enemy_spawner_area_entered(area):
 		var newPathFollow
 		newPathFollow = PathFollow2D.new()
 		$EnemyContainer.get_node("Path2D").add_child(newPathFollow)
-		area.reparent(newPathFollow)
+		#area.reparent(newPathFollow)
+		$EnemyContainer.remove_child(area)
+		newPathFollow.add_child(area)
+		newPathFollow.rotates = false
 		area.isReady = true
-		print("Area found")
+		area.spawn_self()
