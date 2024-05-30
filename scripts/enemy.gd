@@ -8,7 +8,9 @@ extends Area2D
 @export var shotAmount = 0
 @export var shotCoolDown = 1.0
 @export var shotStartUp = 1.0
+@export var lifeTime: int
 @export var movePattern: String
+@export var pathOffset = Vector2(0,0)
 var isReady = false
 var worldNode
 var pathNode
@@ -16,6 +18,7 @@ var pathNode
 
 func _ready():
 	worldNode = get_parent().get_parent()
+	$Timer.wait_time = lifeTime
 
 
 func _physics_process(delta):
@@ -30,9 +33,12 @@ func take_damage(damage):
 
 
 func spawn_self():
-	$StartTimer.wait_time = shotStartUp
+	if lifeTime != 0:
+		$Timer.start()
+	if shotPattern != "":
+		$StartTimer.start(shotStartUp)
 	add_to_group("Enemy")
-	position = Vector2(0,0)
+	position = pathOffset
 	pathNode = get_parent()
 
 

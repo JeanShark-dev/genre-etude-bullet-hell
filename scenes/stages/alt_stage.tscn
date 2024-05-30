@@ -38,12 +38,14 @@ movePattern = "Path2D"
 [node name="Spinner2" parent="EnemyContainer" instance=ExtResource("2_q1ty3")]
 position = Vector2(425, -356)
 speed = 100
+lifeTime = 11
 movePattern = "Path2D2"
 
 [node name="Spinner3" parent="EnemyContainer" instance=ExtResource("2_q1ty3")]
 position = Vector2(493, -588)
 speed = 200
 movePattern = "Path2D"
+pathOffset = Vector2(50, -30)
 
 [node name="Path2D2" type="Path2D" parent="EnemyContainer"]
 curve = SubResource("Curve2D_wkv1n")
