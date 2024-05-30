@@ -35,7 +35,7 @@ func _on_enemy_spawner_area_entered(area):
 	if area.has_method("spawn_self"):
 		var newPathFollow
 		newPathFollow = PathFollow2D.new()
-		$EnemyContainer.get_node("Path2D").add_child(newPathFollow)
+		$EnemyContainer.get_node(area.movePattern).add_child(newPathFollow)
 		#area.reparent(newPathFollow)
 		$EnemyContainer.remove_child(area)
 		newPathFollow.add_child(area)

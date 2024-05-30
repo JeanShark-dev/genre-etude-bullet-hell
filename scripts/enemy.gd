@@ -8,6 +8,7 @@ extends Area2D
 @export var shotAmount = 0
 @export var shotCoolDown = 1.0
 @export var shotStartUp = 1.0
+@export var movePattern: String
 var isReady = false
 var worldNode
 var pathNode
