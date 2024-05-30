@@ -27,8 +27,8 @@ func _process(delta):
 			i.queue_free()
 
 
-func enemy_shoot(enemyPosition, enemyRotation, pattern): # to be called by enemies only
-	Spawning.spawn({"position": enemyPosition, "rotation": enemyRotation}, pattern, "0")
+func enemy_shoot(node, pattern): # to be called by enemies only
+	Spawning.spawn(node, pattern, "0")
 
 
 func _on_enemy_spawner_area_entered(area):

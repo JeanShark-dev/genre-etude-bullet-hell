@@ -52,7 +52,7 @@ func _on_timer_timeout():
 
 func _on_shot_timer_timeout():
 	shotAmount -= 1
-	worldNode.enemy_shoot(position, rotation, shotPattern)
+	worldNode.enemy_shoot(self, shotPattern)
 	if shotAmount == 0:
 		$ShotTimer.stop()
 
