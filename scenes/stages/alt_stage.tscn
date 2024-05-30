@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHBulletProperties.gd" id="4_g1864"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BulletProps.gd" id="5_m13gl"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHPattern.gd" id="6_00ppo"]
-[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternCircle.gd" id="7_61cxm"]
+[ext_resource type="Script" path="res://addons/BulletUpHell/SpawnPatterns/PatternOne.gd" id="7_q5shm"]
 
 [sub_resource type="Curve2D" id="Curve2D_hteev"]
 _data = {
@@ -33,7 +33,7 @@ size = Vector2(1291, 20)
 script = ExtResource("5_m13gl")
 speed = 250.0
 scale = 1
-angle = 0
+angle = -0.1996
 groups = []
 anim_idle_texture = "0"
 anim_spawn_texture = ""
@@ -119,49 +119,39 @@ r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [sub_resource type="Curve2D" id="Curve2D_n2n80"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, -13, 0, 0, 0, 0, -27, -12)
+}
+point_count = 3
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_3tp1p"]
-resource_name = "PatternCircle"
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6d5am"]
+resource_name = "PatternOne"
 source_geometry_group_name = &"navigation_polygon_source_group"
-script = ExtResource("7_61cxm")
-bullet = "small"
-nbr = 6
-radius = 50.0
-angle_total = 6.28319
-angle_decal = 0
-pattern_angle = 0.0
-symmetric = false
-center = 0
-iterations = 3
-follows_parent = false
+script = ExtResource("7_q5shm")
+bullet = "smalltrio"
+iterations = 1
+follows_parent = true
 forced_angle = 0.0
-forced_target = NodePath("../../PlayerTracker")
+forced_target = NodePath("")
 forced_lookat_mouse = false
 forced_pattern_lookat = true
 cooldown_stasis = false
 cooldown_spawn = 0.017
-cooldown_shoot = 0.17
-cooldown_next_spawn = 0.27
-cooldown_next_shoot = 0.5
+cooldown_shoot = 0.017
+cooldown_next_spawn = 0.0
+cooldown_next_shoot = 0.0
 wait_latence = 0
 wait_tween_momentum = 0
 wait_tween_length = 0.0
 wait_tween_time = 0.0
-layer_nbr = 1
+layer_nbr = 3
 layer_cooldown_spawn = 0.0
-layer_pos_offset = 0.0
+layer_pos_offset = 10.0
 layer_speed_offset = 0.0
-layer_angle_offset = 0.0
+layer_angle_offset = 0.2004
 r_randomisation_chances = 1.0
-r_radius_choice = ""
-r_radius_variation = Vector3(0, 0, 0)
-r_angle_total_choice = ""
-r_angle_total_variation = Vector3(0, 0, 0)
-r_angle_decal_choice = ""
-r_angle_decal_variation = Vector3(0, 0, 0)
-r_symmetry_chances = 0.0
 r_bullet_choice = ""
-r_bullet_nbr_choice = ""
+r_bullet_nbr_choice = "10"
 r_bullet_nbr_variation = Vector3(0, 0, 0)
 r_pattern_angle_choice = ""
 r_pattern_angle_variation = Vector3(0, 0, 0)
@@ -192,17 +182,23 @@ metadata/_edit_vertical_guides_ = [-126.0]
 position = Vector2(-13, 6)
 curve = SubResource("Curve2D_hteev")
 
-[node name="Spinner" parent="EnemyContainer" instance=ExtResource("2_q1ty3")]
+[node name="Spinner" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
 position = Vector2(278, -142)
 speed = 300
 shotPattern = "hex"
+shotAmount = 50
+shotCoolDown = 0.5
 movePattern = "Path2D"
+aimTarget = NodePath("../../PlayerTracker")
 
-[node name="Spinner2" parent="EnemyContainer" instance=ExtResource("2_q1ty3")]
+[node name="Spinner2" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
 position = Vector2(425, -356)
 speed = 100
+shotCoolDown = 0.5
+shotStartUp = 1.0
 lifeTime = 11
 movePattern = "Path2D2"
+aimTarget = NodePath("../../PlayerTracker")
 
 [node name="Spinner3" parent="EnemyContainer" instance=ExtResource("2_q1ty3")]
 position = Vector2(493, -588)
@@ -232,7 +228,7 @@ shape = SubResource("RectangleShape2D_0qsy2")
 [node name="BulletPattern" type="Path2D" parent="BulletContainer"]
 curve = SubResource("Curve2D_7nvic")
 script = ExtResource("4_g1864")
-id = "small"
+id = "smalltrio"
 props = SubResource("PackedDataContainer_wi4l3")
 
 [node name="PatternContainer" type="Node2D" parent="."]
@@ -241,7 +237,7 @@ props = SubResource("PackedDataContainer_wi4l3")
 curve = SubResource("Curve2D_n2n80")
 script = ExtResource("6_00ppo")
 id = "hex"
-pattern = SubResource("NavigationPolygon_3tp1p")
+pattern = SubResource("NavigationPolygon_6d5am")
 preview_spawn = true
 preview_shoot = true
 

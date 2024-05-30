@@ -2,15 +2,16 @@ extends Area2D
 
 
 @export var healthPoints: int = 100
-@export var target: Vector2
+@export var moveTarget: Vector2
 @export var speed: int
 @export var shotPattern: String
 @export var shotAmount = 0
-@export var shotCoolDown = 1.0
-@export var shotStartUp = 1.0
+@export var shotCoolDown: float
+@export var shotStartUp: float
 @export var lifeTime: int
 @export var movePattern: String
 @export var pathOffset = Vector2(0,0)
+@export var aimTarget: Node
 var isReady = false
 var worldNode
 var pathNode
@@ -44,6 +45,9 @@ func spawn_self():
 
 func move(delta):
 	pathNode.progress += speed * delta
+	if aimTarget != null:
+		var angle = global_position.direction_to(aimTarget.position).angle()
+		rotation = angle#move_toward(rotation, angle, delta)
 
 
 func _on_timer_timeout():
@@ -52,7 +56,7 @@ func _on_timer_timeout():
 
 func _on_shot_timer_timeout():
 	shotAmount -= 1
-	worldNode.enemy_shoot(self, shotPattern)
+	worldNode.enemy_shoot(global_position, rotation, shotPattern)
 	if shotAmount == 0:
 		$ShotTimer.stop()
 
