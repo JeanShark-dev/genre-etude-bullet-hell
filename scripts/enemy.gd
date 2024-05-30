@@ -46,8 +46,7 @@ func spawn_self():
 func move(delta):
 	pathNode.progress += speed * delta
 	if aimTarget != null:
-		var angle = global_position.direction_to(aimTarget.position).angle()
-		rotation = angle#move_toward(rotation, angle, delta)
+		rotation = global_position.direction_to(aimTarget.position).angle()
 
 
 func _on_timer_timeout():

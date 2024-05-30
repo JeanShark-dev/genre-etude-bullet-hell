@@ -32,7 +32,7 @@ size = Vector2(1291, 20)
 [sub_resource type="PackedDataContainer" id="PackedDataContainer_wi4l3"]
 script = ExtResource("5_m13gl")
 speed = 250.0
-scale = 1
+scale = 0.5
 angle = -0.1996
 groups = []
 anim_idle_texture = "0"
@@ -119,10 +119,6 @@ r_scale_multi_iter_variation = Vector3(0, 0, 0)
 r_scale_multi_scale_variation = Vector3(0, 0, 0)
 
 [sub_resource type="Curve2D" id="Curve2D_n2n80"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, -13, 0, 0, 0, 0, -27, -12)
-}
-point_count = 3
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6d5am"]
 resource_name = "PatternOne"
@@ -173,6 +169,7 @@ r_cooldown_n_shoot_variation = Vector3(0, 0, 0)
 
 [node name="World" type="Node2D"]
 process_mode = 1
+z_index = -10
 script = ExtResource("1_6gbow")
 metadata/_edit_vertical_guides_ = [-126.0]
 
@@ -186,16 +183,14 @@ curve = SubResource("Curve2D_hteev")
 position = Vector2(278, -142)
 speed = 300
 shotPattern = "hex"
-shotAmount = 50
-shotCoolDown = 0.5
+shotAmount = 10
+shotCoolDown = 0.1
 movePattern = "Path2D"
 aimTarget = NodePath("../../PlayerTracker")
 
 [node name="Spinner2" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
 position = Vector2(425, -356)
 speed = 100
-shotCoolDown = 0.5
-shotStartUp = 1.0
 lifeTime = 11
 movePattern = "Path2D2"
 aimTarget = NodePath("../../PlayerTracker")
