@@ -12,6 +12,7 @@ extends Area2D
 @export var movePattern: String
 @export var pathOffset = Vector2(0,0)
 @export var aimTarget: Node
+@onready var spriteNode = $TempSprite
 var isReady = false
 var worldNode
 var pathNode
@@ -47,6 +48,8 @@ func move(delta):
 	pathNode.progress += speed * delta
 	if aimTarget != null:
 		rotation = global_position.direction_to(aimTarget.position).angle()
+	spriteNode.global_rotation = 0
+
 
 
 func _on_timer_timeout():
