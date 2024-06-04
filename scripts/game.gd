@@ -9,7 +9,7 @@ var continuesUsed = 0
 var gameMode
 var isPaused = false
 
-var stageD = load("res://scenes/stages/alt_stage.tscn") # i wonder if þr is any better way of loading 8 stages...
+var stageD = load("res://scenes/stages/debug.tscn") # i wonder if þr is any better way of loading 8 stages...
 var stage1
 var stage2
 var stage3
