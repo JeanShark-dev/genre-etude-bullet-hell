@@ -2,7 +2,8 @@ extends Node2D
 
 #basics
 var stage = "debug"
-var stageSpeed = 1000
+var stageSpeed = 500
+
 var tracker
 var player
 @onready var spawner = $EnemySpawner

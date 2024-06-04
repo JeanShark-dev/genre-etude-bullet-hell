@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd3i830yuoi1p"]
+[gd_scene load_steps=18 format=3 uid="uid://dd3i830yuoi1p"]
 
 [ext_resource type="Script" path="res://scripts/stage.gd" id="1_6gbow"]
 [ext_resource type="AudioStream" uid="uid://d2mo870ac3twi" path="res://sound/bgm/ST-01.mp3" id="2_kiyj8"]
@@ -19,6 +19,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 636, 12, 0, 0, 0, 0, 665, 347, 0, 0, 0, 0, 550, 432, 0, 0, 0, 0, 503, 302, 0, 0, 0, 0, 581, 190, 0, 0, 0, 0, 620, 214, 0, 0, 0, 0, 1161, 261)
 }
 point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_npw4e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 704, -42, 191.724, -5.88627, -191.724, 5.88627, 537, 177, -431.38, -112.68, 431.38, 112.68, 380, 281, 179.952, -56.3401, -179.952, 56.3401, 116, 419, 0, 0, 0, 0, -64, 566, 0, 0, 0, 0, -319, 684)
+}
+point_count = 6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0qsy2"]
 size = Vector2(1291, 20)
@@ -188,6 +194,65 @@ shotCoolDown = 0.1
 movePattern = "Path2D"
 aimTarget = NodePath("../../PlayerTracker")
 
+[node name="Spinner4" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
+position = Vector2(447, -901)
+speed = 250
+shotPattern = "hex"
+shotAmount = 3
+shotCoolDown = 1.0
+shotStartUp = 0.5
+lifeTime = 8
+movePattern = "Across"
+aimTarget = NodePath("../../PlayerTracker")
+
+[node name="Spinner5" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
+position = Vector2(442, -1136)
+speed = 250
+shotPattern = "hex"
+shotAmount = 3
+shotCoolDown = 1.0
+shotStartUp = 0.6
+lifeTime = 8
+movePattern = "Across"
+pathOffset = Vector2(-10, 0)
+aimTarget = NodePath("../../PlayerTracker")
+
+[node name="Spinner6" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
+position = Vector2(446, -1350)
+speed = 250
+shotPattern = "hex"
+shotAmount = 3
+shotCoolDown = 1.0
+shotStartUp = 0.7
+lifeTime = 8
+movePattern = "Across"
+pathOffset = Vector2(-20, 0)
+aimTarget = NodePath("../../PlayerTracker")
+
+[node name="Spinner7" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
+position = Vector2(451, -1631)
+speed = 250
+shotPattern = "hex"
+shotAmount = 3
+shotCoolDown = 1.0
+shotStartUp = 0.8
+lifeTime = 8
+movePattern = "Across"
+pathOffset = Vector2(-30, 0)
+aimTarget = NodePath("../../PlayerTracker")
+
+[node name="Spinner8" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
+position = Vector2(444, -1881)
+speed = 250
+shotPattern = "hex"
+shotAmount = 3
+shotCoolDown = 1.0
+shotStartUp = 0.9
+lifeTime = 8
+movePattern = "Across"
+pathOffset = Vector2(-40, 0)
+aimTarget = NodePath("../../PlayerTracker")
+
 [node name="Spinner2" parent="EnemyContainer" node_paths=PackedStringArray("aimTarget") instance=ExtResource("2_q1ty3")]
 position = Vector2(425, -356)
 speed = 100
@@ -203,6 +268,10 @@ pathOffset = Vector2(50, -30)
 
 [node name="Path2D2" type="Path2D" parent="EnemyContainer"]
 curve = SubResource("Curve2D_wkv1n")
+
+[node name="Across" type="Path2D" parent="EnemyContainer"]
+position = Vector2(6, 2)
+curve = SubResource("Curve2D_npw4e")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_kiyj8")
