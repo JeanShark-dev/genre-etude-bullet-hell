@@ -11,7 +11,7 @@ script = ExtResource("1_wxbd2")
 
 [node name="TempSprite" type="Polygon2D" parent="."]
 color = Color(1, 0.764706, 0.752941, 1)
-polygon = PackedVector2Array(0, 18, 7, 7, 10, 0, 7, -8, 0, -10, -7, -7, -10, -1, -7, 7)
+polygon = PackedVector2Array(0, 10, 7, 7, 10, 0, 7, -7, 0, -10, -7, -7, -10, 0, -7, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cvbur")
