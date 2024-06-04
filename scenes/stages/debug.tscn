@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dd3i830yuoi1p"]
 
-[ext_resource type="Script" path="res://scripts/stages/alt_stage.gd" id="1_6gbow"]
+[ext_resource type="Script" path="res://scripts/stage.gd" id="1_6gbow"]
 [ext_resource type="AudioStream" uid="uid://d2mo870ac3twi" path="res://sound/bgm/ST-01.mp3" id="2_kiyj8"]
 [ext_resource type="PackedScene" uid="uid://dibvuj5u7kix7" path="res://scenes/enemies/spinner.tscn" id="2_q1ty3"]
 [ext_resource type="Script" path="res://addons/BulletUpHell/BuHBulletProperties.gd" id="4_g1864"]
